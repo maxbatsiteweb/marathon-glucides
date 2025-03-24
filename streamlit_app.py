@@ -1,6 +1,7 @@
 import streamlit as st
 import math
 import datetime
+import pandas as pd
 
 st.image("logo_petit_noir.png", width=150)
 
@@ -76,10 +77,6 @@ elif time >= 210:
 else:
     gram_hour = 60 + (210 - time)
 
-st.text(time)
-
-st.text(gram_hour)
-
 total_glucides = (time / 3600) * gram_hour
 
 total_gels = total_glucides / gram_gels
@@ -92,14 +89,17 @@ def secondes_to_minutes(x):
     return f"{minutes:02d}:{seconds:02d}"
 
 
-st.text(total_gels)
-
-
 range_splits_secondes = [i*split_secondes for i in list(range(int(total_gels) + 1)) ]
 range_splits_minutes = [secondes_to_minutes(i) for i in range_splits_secondes]
 
 speed = 42195 / time
 range_splits_km = [(speed*i)/1000 for i in range_splits_secondes]
+
+df_glucides = pd.Dataframe()
+df_glucides["# gel"] = list(range(int(total_gels) + 1))
+df_glucides["Temps"] = range_splits_minutes
+df_glucides["Km"] = range_splits_km
+
 
 def speed_to_pace(speed):
 
@@ -116,9 +116,8 @@ st.text(f"Total de glucides : {total_glucides}")
 
 st.text(f"Total de gels : {total_gels}")
 
-st.text(f"Soit un gel aux minutes {range_splits_minutes}")
+st.dataframe(df_glucides)
 
-st.text(f"Soit un gel aux Km {range_splits_km}")
 
 
 
