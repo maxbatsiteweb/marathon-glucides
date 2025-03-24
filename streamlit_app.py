@@ -76,6 +76,10 @@ elif time >= 210:
 else:
     gram_hour = 60 + (210 - time)
 
+st.text(time)
+
+st.text(gram_hour)
+
 total_glucides = (time / 60) * gram_hour
 
 total_gels = total_glucides / gram_gels
