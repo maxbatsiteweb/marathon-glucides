@@ -52,12 +52,12 @@ st.text("La durabilité est la capacité à minimiser la dégradation de caract�
 
 
 
-st.text("Vous retrouverez ici un article d'Endurance 142 quant à l'importances des glucides pour les efforts longs.")
+st.text("Vous retrouverez ici un article d'Endurance 142 quant à l'importances des glucides lors des efforts longs.")
 
 st.divider()
 
 
-time_input = st.time_input("Temps cible (HH:MM:SS)", value=datetime.time(3, 30, 0), step=60)
+time_input = st.time_input("Temps du marathon (HH:MM:SS).", value=datetime.time(3, 30, 0), step=60)
 time = time_input.hour * 3600 + time_input.minute * 60 + time_input.second
 
 st.divider()
@@ -119,9 +119,9 @@ st.text(f"Total de glucides : {round(total_glucides)} g")
 
 st.text(f"Total de gels : {total_gels}")
 
-st.text("Le premier gel peut être pris 15 minutes avant le départ")
+st.text("Le premier gel peut être pris 15 minutes avant le départ.")
 
-st.text("Exemple, si 8.5 gels doivent être pris, le demi-gel est à prendre en dernier")
+st.text("Exemple, si 8.5 gels doivent être pris, le demi gel est à prendre en dernier.")
 
 st.dataframe(df_glucides)
 
