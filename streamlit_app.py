@@ -88,6 +88,8 @@ def secondes_to_minutes(x):
     return f"{minutes:02d}:{seconds:02d}"
 
 
+st.text(total_gels)
+
 range_splits_secondes = [i*split_secondes for i in list(range(total_gels)) ]
 range_splits_minutes = [secondes_to_minutes(i) for i in range_splits_secondes]
 
