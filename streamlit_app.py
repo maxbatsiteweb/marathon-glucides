@@ -113,11 +113,11 @@ def speed_to_pace(speed):
 
 st.divider()
 
-st.text(f"**Allure marathon**: {speed_to_pace(speed)} / Km")
+st.text(f"Allure marathon: {speed_to_pace(speed)} / Km")
 
-st.text(f"**Total de glucides** : {round(total_glucides)} g")
+st.text(f"Total de glucides : {round(total_glucides)} g")
 
-st.text(f"**Total de gels** : {total_gels}")
+st.text(f"Total de gels : {total_gels}")
 
 st.dataframe(df_glucides)
 
