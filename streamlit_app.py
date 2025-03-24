@@ -119,6 +119,10 @@ st.text(f"Total de glucides : {round(total_glucides)} g")
 
 st.text(f"Total de gels : {total_gels}")
 
+st.text("Le premier gel peut être pris 15 minutes avant le départ")
+
+st.text("Exemple, si 8.5 gels doivent être pris, le demi-gel est à prendre en dernier")
+
 st.dataframe(df_glucides)
 
 
