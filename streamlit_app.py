@@ -56,7 +56,7 @@ st.text("Vous retrouverez ici un article d'Endurance 142 quant à l'importances 
 st.divider()
 
 
-time_input = st.time_input("Temps cible (HH:MM:SS)", value=datetime.time(3, 30, 0), step=1)
+time_input = st.time_input("Temps cible (HH:MM:SS)", value=datetime.time(3, 30, 0), step=60)
 time = time_input.hour * 3600 + time_input.minute * 60 + time_input.second
 
 st.divider()
