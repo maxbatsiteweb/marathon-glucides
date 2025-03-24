@@ -42,13 +42,13 @@ st.markdown(
 
 st.header("Protocole nutrition sur marahton")
 
-st.text("La consommation de glucides est primordial pour soutenir un effort sur les 42 Km")
+st.text("La consommation de glucides est primordial pour soutenir un effort sur de 42 Km.")
 
-st.text("C'est une condition nécessaire (pas suffisante) pour éviter de 'prendre le mur' du 30ème kilomètre.")
+st.text("C'est une condition nécessaire (non suffisante) afin d'éviter le 'mur' du 30ème kilomètre.")
 
 st.text("Les dernières recherches en la matière montrent que c'est l'un des pilliers de la durabilité.")
 
-st.text("La durabilité est la capacité à minimiser la dégradation de caractéristiques physiologiques durant un effort long (VO2Max, seuils, force maximale, économie de course notamment)")
+st.text("La durabilité est la capacité à minimiser la dégradation de caractéristiques physiologiques durant un effort long (VO2Max, seuils, force maximale, économie de course notamment).")
 
 
 
@@ -62,13 +62,13 @@ time = time_input.hour * 3600 + time_input.minute * 60 + time_input.second
 
 st.divider()
 
-st.text("La science préconise des apports de glucides allant de 50g/h à 100g/h")
+st.text("La science préconise des apports de glucides allant de 50g/h à 100g/h.")
 
 st.text("Pour les coureurs visant un marathon entre 4h00 et 3h00, 60g/h est une bonne base.")
 
-st.text("Pour les coureurs visant 3h et moins, 90h/h est recommandé")
+st.text("Pour les coureurs visant 3h et moins, 90h/h est recommandé.")
 
-gram_gels = st.number_input("Grammes de glucides dans le gel (25g par défaut)", 25)
+gram_gels = st.number_input("Grammes de glucides par gel (25g par défaut).", 25)
 
 if time <= 180:
     gram_hour = 90
@@ -83,20 +83,23 @@ total_gels = total_glucides / gram_gels
 
 split_secondes = time / total_gels
 
+
+
 def secondes_to_minutes(x):
-    minutes = math.floor(x / 60)
-    seconds = int(x % 60)
-    return f"{minutes:02d}:{seconds:02d}"
+    hours = x // 3600
+    minutes = (x % 3600) // 60
+    seconds = x % 60
+    return f"{int(hours):02d}:{int(minutes):02d}:{int(seconds):02d}"
 
 
 range_splits_secondes = [i*split_secondes for i in list(range(int(total_gels) + 1)) ]
 range_splits_minutes = [secondes_to_minutes(i) for i in range_splits_secondes]
 
 speed = 42195 / time
-range_splits_km = [(speed*i)/1000 for i in range_splits_secondes]
+range_splits_km = [round((speed*i)/1000, 1) for i in range_splits_secondes]
 
 df_glucides = pd.DataFrame()
-df_glucides["# gel"] = list(range(int(total_gels) + 1))
+df_glucides["# gel"] = list(range(1, int(total_gels) + 1 + 1))
 df_glucides["Temps"] = range_splits_minutes
 df_glucides["Km"] = range_splits_km
 
@@ -110,11 +113,11 @@ def speed_to_pace(speed):
 
 st.divider()
 
-st.text(f"Vitesse: {speed_to_pace(speed)}")
+st.text(f"**Allure marathon**: {speed_to_pace(speed)} / Km")
 
-st.text(f"Total de glucides : {total_glucides}")
+st.text(f"**Total de glucides** : {round(total_glucides)} g")
 
-st.text(f"Total de gels : {total_gels}")
+st.text(f"**Total de gels** : {total_gels}")
 
 st.dataframe(df_glucides)
 
