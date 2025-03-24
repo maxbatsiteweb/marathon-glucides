@@ -42,7 +42,7 @@ st.markdown(
 
 st.header("Protocole nutrition sur marahton")
 
-st.text("La consommation de glucides est primordial pour soutenir un effort sur de 42 Km.")
+st.text("La consommation de glucides est primordial pour soutenir un effort de 42 Km.")
 
 st.text("C'est une condition nécessaire (non suffisante) afin d'éviter le 'mur' du 30ème kilomètre.")
 
