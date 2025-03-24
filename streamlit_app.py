@@ -80,7 +80,7 @@ st.text(time)
 
 st.text(gram_hour)
 
-total_glucides = (time / 60) * gram_hour
+total_glucides = (time / 3600) * gram_hour
 
 total_gels = total_glucides / gram_gels
 
