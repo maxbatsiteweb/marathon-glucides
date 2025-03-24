@@ -94,7 +94,8 @@ def secondes_to_minutes(x):
 
 st.text(total_gels)
 
-range_splits_secondes = [i*split_secondes for i in list(range(total_gels)) ]
+
+range_splits_secondes = [i*split_secondes for i in list(range(int(total_gels) + 1)) ]
 range_splits_minutes = [secondes_to_minutes(i) for i in range_splits_secondes]
 
 speed = 42195 / time
