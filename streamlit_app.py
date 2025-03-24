@@ -51,8 +51,7 @@ st.text("Les dernières recherches en la matière montrent que c'est l'un des pi
 st.text("La durabilité est la capacité à minimiser la dégradation de caractéristiques physiologiques durant un effort long (VO2Max, seuils, force maximale, économie de course notamment).")
 
 
-
-st.text("Vous retrouverez ici un article d'Endurance 142 quant à l'importances des glucides lors des efforts longs.")
+st.markdown("Vous retrouverez [ici un article d'Endurance 142](https://maximebataille-trailrunning.fr/glucides_marathon_trail#menu02-4l) quant à l'importance des glucides lors des efforts longs.")
 
 st.divider()
 
@@ -117,7 +116,7 @@ st.text(f"Allure marathon: {speed_to_pace(speed)} / Km")
 
 st.text(f"Total de glucides : {round(total_glucides)} g")
 
-st.text(f"Total de gels : {total_gels}")
+st.text(f"Total de gels : {round(total_gels, 1)}")
 
 st.text("Le premier gel peut être pris 15 minutes avant le départ.")
 
