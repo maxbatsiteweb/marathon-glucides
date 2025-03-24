@@ -92,14 +92,14 @@ def secondes_to_minutes(x):
     return f"{int(hours):02d}:{int(minutes):02d}:{int(seconds):02d}"
 
 
-range_splits_secondes = [i*split_secondes for i in list(range(int(total_gels) + 1)) ]
+range_splits_secondes = [i*split_secondes for i in list(range(math.ceil(total_gels))) ]
 range_splits_minutes = [secondes_to_minutes(i) for i in range_splits_secondes]
 
 speed = 42195 / time
 range_splits_km = [round((speed*i)/1000, 1) for i in range_splits_secondes]
 
 df_glucides = pd.DataFrame()
-df_glucides["# gel"] = list(range(1, int(total_gels) + 1 + 1))
+df_glucides["# gel"] = list(range(1, math.ceil(total_gels) + 1))
 df_glucides["Temps"] = range_splits_minutes
 df_glucides["Km"] = range_splits_km
 
