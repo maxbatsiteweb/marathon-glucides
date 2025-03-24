@@ -38,7 +38,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.head("Protocole nutrition sur marahton")
+st.header("Protocole nutrition sur marahton")
 
 st.text("La consommation de glucides est primordial pour soutenir un effort sur les 42 Km")
 
