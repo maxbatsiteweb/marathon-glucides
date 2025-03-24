@@ -54,7 +54,7 @@ st.text("Vous retrouverez ici un article d'Endurance 142 quant à l'importances 
 
 st.divider()
 
-time = st.time_input("Temps sur marathon")
+time = st.time_input("Temps sur marathon", step=60)
 
 st.divider()
 
