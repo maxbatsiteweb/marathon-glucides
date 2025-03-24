@@ -95,7 +95,7 @@ range_splits_minutes = [secondes_to_minutes(i) for i in range_splits_secondes]
 speed = 42195 / time
 range_splits_km = [(speed*i)/1000 for i in range_splits_secondes]
 
-df_glucides = pd.Dataframe()
+df_glucides = pd.DataFrame()
 df_glucides["# gel"] = list(range(int(total_gels) + 1))
 df_glucides["Temps"] = range_splits_minutes
 df_glucides["Km"] = range_splits_km
